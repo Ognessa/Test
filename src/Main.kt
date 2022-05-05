@@ -24,7 +24,7 @@ fun main(args : Array<String>) {
 
         println("\nGame started")
         gameInKotlinPlayground.setStartValues()
-        gameInKotlinPlayground.humanGuessNum()
+        gameInKotlinPlayground.computerGuessNum()
     }
     else{
         println("Arguments is empty.")
@@ -206,8 +206,20 @@ class Number{
         number = Random.nextInt(min, max)
     }
 
-    fun setMin(min : Int){ this.min = min}
-    fun setMax(max : Int){ this.max = max}
+    fun setMin(min : Int){
+        if(min < this.max)
+            this.min = min
+        else
+            println("It's impossible!!")
+    }
+
+    fun setMax(max : Int){
+        if(max > this.min)
+            this.max = max
+        else
+            println("It's impossible!!")
+    }
+
     fun getNum() : Int{return number}
 
     /**
